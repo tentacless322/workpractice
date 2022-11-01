@@ -1,0 +1,29 @@
+version: "3"
+
+# INFO: For web UI you can use pgadmin 4
+#       For gen configuration use pgtune https://pgtune.sainth.de/
+
+services:
+  database:
+      image: postgres:14.4
+      container_name: ts_database
+      environment:
+          POSTGRES_DB: "db_name"      # NOTE: name database after start
+          POSTGRES_USER: "xxx"        # NOTE: name user after start 
+          POSTGRES_PASSWORD: "admin"  # NOTE: password for database after start
+          PGDATA: "/var/lib/postgresql/data/pgdata" # NOTE: custom path to data databaseß
+      volumes:
+        - ./init.d:/docker-entrypoint-initdb.d # NOTE: folder with .sql files. Postgres read *.sql files on first start 
+        # - ./db:/var/lib/postgresql/data/pgdata # NOTE: volume for storage data Postgres
+      ports:
+          - 5432:5432
+      deploy:
+        resources:
+          limits:
+            cpus: '2.0'
+            memory: 2048M
+            pids: 1
+          reservations:
+            cpus: '0.25'
+            memory: 200M
+

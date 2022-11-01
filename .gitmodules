@@ -1,0 +1,9 @@
+[submodule "gateway_go"]
+	path = gate_go
+	url = https://gitlab.com/BukerDevid/work-gateway
+[submodule "preparer_go"]
+	path = preparer_go
+	url = https://gitlab.com/BukerDevid/work-preparer.git
+[submodule "storage_go"]
+	path = storage_go
+	url = https://gitlab.com/BukerDevid/work-storage.git

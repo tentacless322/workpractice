@@ -1,0 +1,3 @@
+.redis/db
+.postgres/db
+.DS_Store
